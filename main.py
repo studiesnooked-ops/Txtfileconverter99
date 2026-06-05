@@ -41,8 +41,17 @@ async def handle_document(client, message):
         txt_file_path = await message.download()
         
         try:
+            # Read all raw lines from the text file
             with open(txt_file_path, 'r') as file:
-                urls = [line.strip() for line in file.readlines() if line.strip()]
+                raw_lines = [line.strip() for line in file.readlines() if line.strip()]
+            
+            # Filter out lecture names and isolate only the URLs
+            urls = []
+            for line in raw_lines:
+                if "http" in line:
+                    url_start = line.find("http")
+                    extracted_url = line[url_start:].strip()
+                    urls.append(extracted_url)
             
             if not urls:
                 await status_msg.edit_text("The text file is empty or contains no valid URLs.")
