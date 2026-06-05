@@ -1,7 +1,9 @@
 import os
 import yt_dlp
 from pyrogram import Client, filters
-from vars import API_ID, API_HASH, BOT_TOKEN
+API_ID = os.environ.get("API_ID")
+API_HASH = os.environ.get("API_HASH")
+BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
 # Initialize the Pyrogram client
 app = Client(
