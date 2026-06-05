@@ -12,7 +12,8 @@ def run_dummy_server():
 
 threading.Thread(target=run_dummy_server, daemon=True).start()
 
-API_ID = os.environ.get("API_ID")
+# Converted API_ID to an integer to prevent Pyrogram type errors
+API_ID = int(os.environ.get("API_ID", 0))
 API_HASH = os.environ.get("API_HASH")
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
 
