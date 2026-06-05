@@ -4,9 +4,9 @@ from pyrogram import Client, filters
 
 # --- SETUP YOUR BOT CREDENTIALS HERE ---
 # (Keep your existing app initialization if you already have it at the top of your file)
-API_ID = "YOUR_API_ID"
-API_HASH = "YOUR_API_HASH"
-BOT_TOKEN = "YOUR_BOT_TOKEN"
+API_ID = "34867096"
+API_HASH = "03941565a45dea9ff1d5dba90a31069b"
+BOT_TOKEN = "8813917698:AAF12-XyoLj1gqWqcFi0-Het6CK66duups8"
 
 app = Client("my_bot", api_id=API_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
