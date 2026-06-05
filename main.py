@@ -1,6 +1,17 @@
 import os
 import yt_dlp
 from pyrogram import Client, filters
+import threading
+from http.server import SimpleHTTPRequestHandler, HTTPServer
+
+# Tiny dummy server to satisfy Render's port requirement
+def run_dummy_server():
+    port = int(os.environ.get("PORT", 8080))
+    server = HTTPServer(("0.0.0.0", port), SimpleHTTPRequestHandler)
+    server.serve_forever()
+
+threading.Thread(target=run_dummy_server, daemon=True).start()
+
 API_ID = os.environ.get("API_ID")
 API_HASH = os.environ.get("API_HASH")
 BOT_TOKEN = os.environ.get("BOT_TOKEN")
